@@ -64,6 +64,8 @@
 ### [🔧 Exception management in .NET Core](essentials/exceptions.md)
 ## [.NET Command Line Interface reference](cli/index.md)
 ### [🔧 Overview](cli/overview.md)
+### [🔧 Migrating from DNX](cli/dnx-migration.md)
+### [🔧 Available application types](cli/app-types.md)
 ### [🔧 dotnet-new](cli/dotnet-new.md)
 ### [🔧 dotnet-restore](cli/dotnet-restore.md)
 ### [🔧 dotnet-run](cli/dotnet-run.md)
