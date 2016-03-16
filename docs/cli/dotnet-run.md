@@ -18,6 +18,6 @@ Output files, are written to the child `bin` folder, which will be created if it
 
 -v, --verbose
 
-    Prints verbose logging information, to follow the flow of execution of the command.
+Prints verbose logging information, to follow the flow of execution of the command.
 
 

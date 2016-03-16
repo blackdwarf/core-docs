@@ -18,15 +18,15 @@ Each specific feature is implemented as a command. In order to use the feature, 
 ## OPTIONS
 `-v, --verbose`
 
-    Enable verbose output.
+Enable verbose output.
 
 `--version`
 
-    Print out the version of the CLI tooling
+Print out the version of the CLI tooling
 
 `-h, --help`
 
-    Print out a short help and a list of current commands. 
+Print out a short help and a list of current commands. 
 
 ## DOTNET COMMANDS
 

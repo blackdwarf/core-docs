@@ -44,20 +44,20 @@ default to the current directory.
 
 `-o`, `--output` [DIR]
 
-    Place the built packages in the directory specified. 
+Place the built packages in the directory specified. 
 
 
 `--no-build`
 
-    Skip the building phase of the packing process. 
+Skip the building phase of the packing process. 
 
 `--build-base-path`
 
-    Place the temporary build artifacts in the specified directory. By default, they go to obj directory in the current directory. 
+Place the temporary build artifacts in the specified directory. By default, they go to obj directory in the current directory. 
 
 `-c`, `--configuration [Debug|Release]`
 
-    Configuration to use when building the project. If not specified, will default to "Debug".
+Configuration to use when building the project. If not specified, will default to "Debug".
 
 ## EXAMPLES
 

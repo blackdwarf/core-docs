@@ -23,28 +23,28 @@ The native dependencies of the runtime are not packaged with the application. Th
 
 `[project]` 
     
-    `dotnet-publish` needs access to `project.json` to work. If it is not specified on invocation via [project], `project.json` in the current directory will be the default.     If no `project.json` can be found, `dotnet-publish` will error out. `dotnet-publish` command also requires certain dependencies in the `project.json` to work. Namely the `Microsoft.NETCore.Runtime` package must be referenced as a dependency in order for the command to copy the runtime files as well as the application's files to the published location.  
+`dotnet-publish` needs access to `project.json` to work. If it is not specified on invocation via [project], `project.json` in the current directory will be the default.     If no `project.json` can be found, `dotnet-publish` will error out. `dotnet-publish` command also requires certain dependencies in the `project.json` to work. Namely the `Microsoft.NETCore.Runtime` package must be referenced as a dependency in order for the command to copy the runtime files as well as the application's files to the published location.  
 
 `-f`, `--framework` [FID]
 
-    Publish the application for a given framework identifier (FID). If not specified, FID is read from `project.json`. In case of no valid framework found, the command will error out. In case of multiple valid frameworks found, the command will publish for all valid frameworks. 
+Publish the application for a given framework identifier (FID). If not specified, FID is read from `project.json`. In case of no valid framework found, the command will error out. In case of multiple valid frameworks found, the command will publish for all valid frameworks. 
 
 
 `-r`, `--runtime` [RID]
 
-    Publish the application for a given runtime. If the option is not specified, the command will default to the runtime for the current operationg system. Supported values for the option at this time are:
+Publish the application for a given runtime. If the option is not specified, the command will default to the runtime for the current operationg system. Supported values for the option at this time are:
 
-        * ubuntu.14.04-x64
-        * win7-x64
-        * osx.10.10-x64
+    * ubuntu.14.04-x64
+    * win7-x64
+    * osx.10.10-x64
 
 `-o`, `--output`
 
-    Specify the path where to place the directory. If not specified, will default to _./bin/[configuration]/[framework]/[runtime]/_
+Specify the path where to place the directory. If not specified, will default to _./bin/[configuration]/[framework]/[runtime]/_
 
 `-c`, `--configuration [Debug|Release]`
 
-    Configuration to use when publishing. If not specified, will default to "Debug".
+Configuration to use when publishing. If not specified, will default to "Debug".
 
 ## EXAMPLES
 

@@ -1,5 +1,5 @@
-🔧 dotnet-restore
-=================
+dotnet-restore
+==============
 
 ## NAME
 
@@ -31,7 +31,7 @@ proceed to restore the tool's dependencies as specified in its project.json.
 
 `[root]` 
     
-     A list of projects or project folders to restore. The list can contain either a path to a `project.json` file, path to `global.json` file or  folder. The restore operation will run recursivelly for all sub-directories and restore for each given project.json file it finds.
+ A list of projects or project folders to restore. The list can contain either a path to a `project.json` file, path to `global.json` file or  folder. The restore operation will run recursivelly for all sub-directories and restore for each given project.json file it finds.
 
 `-s`, `--source` [SOURCE]
 
@@ -43,7 +43,7 @@ Specifies the directory to place the restored packages in.
 
 `--disable-parallel`
 
-    Disable restoring multiple projects in parallel. 
+Disable restoring multiple projects in parallel. 
 
 `-f`, `--fallbacksource` [FEED]
 
@@ -61,17 +61,17 @@ The verbosity of logging to use. Allowed values: Debug, Verbose, Information, Mi
 
 `dotnet-restore`
 
-    Restore dependencies and tools for the project in the current directory. 
+Restore dependencies and tools for the project in the current directory. 
 
 `dotnet-restore ~/projects/app1/project.json`
     
-    Restore dependencies and tools for the app1 project found in the given path.
+Restore dependencies and tools for the app1 project found in the given path.
 	
 `dotnet-restore --f c:\packages\mypackages`
     
-    Restore the dependencies and tools for the project in the current directory using the file path provided as the fallback source. 
+Restore the dependencies and tools for the project in the current directory using the file path provided as the fallback source. 
 	
 `dotnet-restore --verbosity Error`
     
-    Show only errors in the output.
+Show only errors in the output.
 

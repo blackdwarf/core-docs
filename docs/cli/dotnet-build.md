@@ -36,12 +36,15 @@ Build inherits all the [Compile command line parameters](https://github.com/dotn
 
 In addition Compile's parameters, Build adds the following flag:
 
---build-profile
+`--build-profile`
+
 Prints out the incremental safety checks that users need to address in order for incremental compilation to be automatically turned on.
 
---no-incremental
+`--no-incremental`
+
 Marks the build as unsafe for incrementality. This turns off incremental compilation and forces a clean rebuild of the project dependency graph.
 
---no-dependencies
+`--no-dependencies`
+
 Ignore project to project references and only build the root project specified to build.
 
