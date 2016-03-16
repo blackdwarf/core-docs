@@ -1,5 +1,16 @@
-# 🔧 .NET Core Command Line Tools (CLI) overview
+# 🔧 .NET Core Command Line Tools (CLI)
 
-> **Note**
-> 
-> This topic hasn’t been written yet! You can track the status of this issue through our public GitHub issue tracker. Learn how you can contribute on GitHub.
+## What is the .NET CLI?
+TBD
+
+## Motivation for a new toolset
+TBD
+
+## Installation
+TBD
+
+## How it works?
+TBD
+
+## Extensibility
+TBD
