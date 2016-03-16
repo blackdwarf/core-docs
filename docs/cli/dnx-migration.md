@@ -98,9 +98,7 @@ If you are building a console application, you need to add the following snippet
 This instructs `dotnet build` to emit an entry point for your application, effectively making your code runnable. If 
 you are building a class library, simply omit the above section.
 
-If you have a "commands" section in your `project.json`, you can remove it. For ASP.NET Core applications, you can use 
-just `dotnet run` to run them (or `dotnet build` and then `dotnet <path-to-dll>`); with the CLI, the need for a special 
-command "web" went away. 
+If you have a "commands" section in your `project.json`, you can remove it.
 
 Some of the commands that used to exist as DNU commands, such as Entity Framework CLI commands, are being ported to be 
 per-project extensions to the CLI. If you built your own commands that you are using in your projects, you need to 

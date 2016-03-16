@@ -66,6 +66,7 @@
 ### [🔧 Overview](cli/overview.md)
 ### [🔧 Migrating from DNX](cli/dnx-migration.md)
 ### [🔧 Available application types](cli/app-types.md)
+### [🔧 dotnet](cli/dotnet.md)
 ### [🔧 dotnet-new](cli/dotnet-new.md)
 ### [🔧 dotnet-restore](cli/dotnet-restore.md)
 ### [🔧 dotnet-run](cli/dotnet-run.md)
