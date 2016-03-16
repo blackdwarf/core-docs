@@ -3,21 +3,29 @@
 
 ## NAME
 
-`dotnet-restore` - restores the dependencies and tools of the project being run on
+`dotnet-restore` - restores the dependencies and tools of a project
 
 ## SYNOPSIS
 
-dotnet-publish [--source]  
+dotnet-restore [--source]  
     [--packages] [--disable-parallel]  
     [--fallbacksource] [--configfile] [--verbosity]
     [< root >]  
 
 ## DESCRIPTION
 
-`dotnet-restore` will use NuGet to restore dependencies as well as project-specific 
-tools for a given project or set of projects. 
+`dotnet-restore` will use NuGet to restore dependencies as well as project-specific tools that are specified in the 
+project.json file. By default, the restoration of dependencies and tools will be done in parallel.
 
-The NuGet.config resolution is 
+In order to restore the dependencies, NuGet needs feeds where the packages are located. Feeds are usually provided via the 
+NuGet.config configuration file; a default one is present when CLI tools are installed. You can specify more feeds by 
+creating your own NuGet.config file in the project directory. Feeds can also be specified per invocation on the command line. 
+
+For dependencies, you can specify where the restored packages will be placed during the restore operation using the 
+`--packages` argument. 
+
+For project-specific tooling, `dotnet-restore` will first restore the package in which the tool is packed, and will then
+proceed to restore the tool's dependencies as specified in its project.json. 
 
 ## OPTIONS
 
@@ -25,42 +33,45 @@ The NuGet.config resolution is
     
      A list of projects or project folders to restore. The list can contain either a path to a `project.json` file, path to `global.json` file or  folder. The restore operation will run recursivelly for all sub-directories and restore for each given project.json file it finds.
 
-`-s`, `--source` [SOURCE    ]
+`-s`, `--source` [SOURCE]
 
-    Specify a source to use during the restore operation. This will override all of the sources specified in the NuGet.config file(s). 
+Specify a source to use during the restore operation. This will override all of the sources specified in the NuGet.config file(s). 
 
+`--packages` [DIR]
 
-`-r`, `--runtime` [RID]
+Specifies the directory to place the restored packages in. 
 
-    Publish the application for a given runtime. If the option is not specified, the command will default to the runtime for the current operationg system. Supported values for the option at this time are:
+`--disable-parallel`
 
-        * ubuntu.14.04-x64
-        * win7-x64
-        * osx.10.10-x64
+    Disable restoring multiple projects in parallel. 
 
-`-o`, `--output`
+`-f`, `--fallbacksource` [FEED]
 
-    Specify the path where to place the directory. If not specified, will default to _./bin/[configuration]/[framework]/[runtime]/_
+Specify a fallback source that will be used in the restore operation if all other sources fail. All valid feed formats are allowed. 
 
-`-c`, `--configuration [Debug|Release]`
+`--configfile` [FILE]
 
-    Configuration to use when publishing. If not specified, will default to "Debug".
+Configuration file (NuGet.config) to use for this restore operation. 
+
+`--verbosity` [LEVEL]
+
+The verbosity of logging to use. Allowed values: Debug, Verbose, Information, Minimal, Warning, Error.
 
 ## EXAMPLES
 
-`dotnet-publish`
+`dotnet-restore`
 
-    Publish the current application using the `project.json` framework and runtime for the current operating system. 
+    Restore dependencies and tools for the project in the current directory. 
 
-`dotnet-publish ~/projects/app1/project.json`
+`dotnet-restore ~/projects/app1/project.json`
     
-    Publish the application using the specified `project.json`; also use framework specified withing and runtime for the current operating system. 
+    Restore dependencies and tools for the app1 project found in the given path.
 	
-`dotnet-publish --framework dnxcore50`
+`dotnet-restore --f c:\packages\mypackages`
     
-    Publish the current application using the `dnxcore50` framework and runtime for the current operating system. 
+    Restore the dependencies and tools for the project in the current directory using the file path provided as the fallback source. 
 	
-`dotnet-publish --framework dnxcore50 --runtime osx.10.10-x64`
+`dotnet-restore --verbosity Error`
     
-    Publish the current application using the `dnxcore50` framework and runtime for `OS X 10.10`
+    Show only errors in the output.
 
