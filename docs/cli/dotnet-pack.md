@@ -1,4 +1,5 @@
-# 🔧 dotnet-pack
+dotnet-pack
+===========
 
 ## NAME
 

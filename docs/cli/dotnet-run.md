@@ -2,9 +2,11 @@ dotnet-run
 ==========
 
 ## NAME 
+
 dotnet-run -- Runs source code 'in-place' without any explicit compile or launch commands.
 
 ## SYNOPSIS
+
 `dotnet run [--verbose]`
 
 ## DESCRIPTION

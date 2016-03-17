@@ -2,16 +2,24 @@ dotnet-build
 ===========
 
 ## NAME 
-dotnet-build -- Orchestrates the compilation of a project and all its dependencies.
+dotnet-build -- builds a project and all of its' dependencies 
 
 ## SYNOPSIS
-dotnet build[options]
+
+dotnet-publish [--output]  
+    [--build-base-output] [--framework]  
+    [--configuration]  [--runtime] [--version-suffix]
+    [--build-profile]  [--no-incremental] [--no-dependencies]
+    [< project >]  
 
 ## DESCRIPTION
 
-The build verb orchestrates the compilation of a project: it gathers the dependencies of a project and decides which to compile. 
+`dotnet-build` builds multiple source file from a source project and its dependencies into a binary. 
+The binary will be in Intermmidiate Language (IL) by default and will have a DLL extension. 
+`dotnet-build` will also drop a \*.deps file which outlines what the runner needs to run the application.  
 
-Users should invoke the Build verb when they want the entire dependency graph compiled, and Compile when they want only a specific project compiled.
+Building requires an existence of a lock file which means that a `dotnet-restore` call needs to happen 
+previous to building.
 
 Before any compilation begins, the build verb analyzes the project and its dependencies for incremental safety checks. If all checks clear out, then build proceeds with incremental compilation of the project and its dependencies. Otherwise it falls back to non-incremental compilation. Via a profile flag users can choose to receive additional information on how they can improve their build times.
 
@@ -20,7 +28,7 @@ All the projects in the dependency graph that need compilation must pass the fol
 - not load compilation tools from PATH (e.g., resgen, compilers)
 - use only known compilers (csc, vbc, fsc)
 
-The executables also require a special configuration section in project.json:
+In order to build an executable application (console application), you need a special configuration section in project.json:
 
 ```json
 { 
@@ -30,11 +38,36 @@ The executables also require a special configuration section in project.json:
 }
 ```
 
+Class libraries do not need this special piece of configuration. 
+
 ## OPTIONS
 
-Build inherits all the [Compile command line parameters](https://github.com/dotnet/cli/blob/master/src/Microsoft.DotNet.Tools.Compiler/README.md).
+`-o`, `--output` [DIR]
 
-In addition Compile's parameters, Build adds the following flag:
+Directory where to place the built binaries. 
+
+`-b`, `--build-base-path` [DIR]
+
+Directory in which to place temporary outputs
+
+`-f`, `--framework` [FRAMEWORK]
+
+Compile a specific framework. The framework needs to be defined in the project.json file.
+
+`-c`, `--configuration` [CONFIGURATION]
+
+Configuration under which to build. If omitted defaults to "Debug". Possible configuration options are:
+
+    * Debug
+    * Release 
+
+`-r`, `--runtime` [RUNTIME_IDENTIFIER]
+
+Target runtime to publish for. 
+
+--version-suffix [VERSION_SUFFIX]
+
+Defines what `*` should be replaced with in version field in project.json.
 
 `--build-profile`
 
