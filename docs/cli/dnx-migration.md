@@ -106,8 +106,10 @@ replace them with CLI extensions. In this case, the `commands` node in `project.
 `tools` node and it needs to list the tools dependencies as explained in the 
 [CLI extensibility section](overview.md#extensibility). 
 
-After this, one thing that remains is to re-target your project to the shared runtime. This is done by introducing a
+After this, two more things  remain. First is to re-target your project to the shared runtime. This is done by introducing a
 specific package dependency to your project.
+
+**TODO: add the diffferent app types here as ac hoice - what is the app dependent on is important!!**
 
 ```json
 "dependencies": {
@@ -115,7 +117,14 @@ specific package dependency to your project.
 }
 ```
 
-After this, running `dotnet restore` will restore the dependencies of your project. Running `dotnet build` will show 
+Second is to change your targeted framework(s). If you were writing applications for .NET Core, you were most likely 
+using `dnxcore50` as  your targeted framework. With the CLI and the changes that the new .NET Standard Library brought, 
+the framework needs to be one of the following:
+
+1. netcoreapp1.0 - if you are writing applications on .NET Core (including ASP.NET Core applications)
+2. netcore1.0 - if you are writing class libraries
+
+Once your `project.json` is ready, running `dotnet restore` will restore the dependencies of your project. Running `dotnet build` will show 
 any build errors, though there shouldn't be too much of them. After your code is building and running properly, you 
 are good to go! Congratulations, the migration from DNX projects in now complete!
 

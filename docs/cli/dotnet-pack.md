@@ -8,7 +8,7 @@ dotnet-pack
 ## SYNOPSIS
 
 dotnet-pack [--output]  
-    [----no-build] [--build-base-path]  
+    [--no-build] [--build-base-path]  
     [--configuration]  [--version-suffix]
     [< project >]  
 
