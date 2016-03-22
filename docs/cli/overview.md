@@ -1,13 +1,17 @@
 # 🔧 .NET Core Command Line Tools (CLI)
 
+**OVERVIEW OF THE FILE**
+- Using the 
+
 ## What is the .NET CLI?
 .NET Core Command Line Interface is a new foundational cross-platform toolchain for developing 
 .NET Core applications. It is "foundational" because it is the primary layer on which other, 
 higher-level experiences, such as Integrated Development Environments (IDEs), editors and 
 build orchestrators can build on. 
 
-## Motivation for a new toolset
-TBD
+# Using the .NET Core CLI
+
+## A short sample usage
 
 ## Installation
 Depending on your scenario, you can either use the native installers to install the CLI or use the 
@@ -34,6 +38,8 @@ There are three main things to each CLI command:
 2. The command or, as we like to call it, the "verb"
 3. Command arguments
 
+Let's dig into more details on each of the above.
+
 ### Driver
 The driver is called `dotnet` and it is the first thing that comes in any CLI invocation. It has two 
 main jobs:
@@ -46,6 +52,10 @@ Other than this, the driver doesn't have any smarts. When it is in the "verb exe
 ### The "verb"
 The verb 
 
+### 
+
 
 ## Extensibility
-Of cour
+Of course, not every tool that you could use in your workflow will be a part of the core CLI tools. However, we do have 
+a pretty good extensiblity model that allows you to specify additional tools for your projects. You can find out more 
+in the [extensibility document](extensibility.md). 
