@@ -25,9 +25,9 @@ DNVM, short for *DotNet Version Manager* was a bash/PowerShell script used to in
 users get the DNX they need from the feed they specified (or default ones) as well as mark a certain DNX "active", which 
 would put it on the $PATH for the given session. This would allow you to use the various tools.
 
-DNVM was discontinued because its feature set is made redundant by changes coming in the CLI.
+DNVM was discontinued because its feature set is made redundant by changes coming in the .NET Core CLI tools.
 
-CLI comes packaged in two main ways, as was specified in the [intro document](overview.md#installation):
+The CLI tools come packaged in two main ways, as was specified in the [intro document](core-sdk/cli/overview.md#installation):
 
 1. Native installers for a given platform
 2. Install script for other situations (like CI servers)
@@ -69,12 +69,14 @@ DNU came with a concept called "global commands". These were, essentially, conso
 packages with a shell script that would invoke the DNX you specified to run the application. 
 
 The CLI does not support this concept. It does, however, support the concept of adding per-project commands that can be 
-invoked using the familiar `dotnet <command>` syntax. More about this can be found in the [extensibility overview](overview.md#extensibility). 
+invoked using the familiar `dotnet <command>` syntax. More about this can be found in the 
+[extensibility overview](core-sdk/cli/overview.md#extensibility). 
 
 ### Installing dependencies
-As of v1, the CLI doesn't have the `install` command for installing dependencies. In order to install a package off of NuGet, you would 
-need to add it as a dependency to your `project.json` file and then run `dotnet restore`. This is a point-in-time thing, 
-as we will most likely be adding an install command to the toolset in the future in some way or form. 
+As of v1, the .NET Core CLI tools don't have an `install` command for installing dependencies. In order to install a 
+package from NuGet, you would need to add it as a dependency to your `project.json` file and then run `dotnet restore`. 
+This is a point-in-time thing, as we will most likely be adding an install command to the toolset in the future in 
+some way or form. 
 
 ### Running your code
 There are two main ways to run your code. One is from source, with `dotnet run`. Unlike `dnx run`, this will not do any 
@@ -111,7 +113,7 @@ DNU commands, such as Entity Framework CLI commands, are being ported to be
 per-project extensions to the CLI. If you built your own commands that you are using in your projects, you need to 
 replace them with CLI extensions. In this case, the `commands` node in `project.json` needs to be replaced by the 
 `tools` node and it needs to list the tools dependencies as explained in the 
-[CLI extensibility section](overview.md#extensibility). 
+[CLI extensibility section](core-sdk/cli/overview.md#extensibility). 
 
 After these things are done, you need to decide which type of portability you wish for you app. With .NET Core, we have 
 invested into providing a spectrum of portability options that you can choose from. For instance, you may want to have 
@@ -119,7 +121,7 @@ a fully *portable* application or you may want to have a *self-contained* applic
 like .NET Framework applications work: it needs a shared component to execute it on the target machine 
 (.NET Core). The self-contained application doesn't require .NET Core to be installed on the target, but you have to 
 produce one application for each OS you wish to support. These portability types and more are discussed in the
- [application portability type](../../app-types.md) document. 
+ [application portability type](app-types.md) document. 
 
 Once you make a call on what type of portability you want, you need to change your targeted framework(s). If you were 
 writing applications for .NET Core, you were most likely using `dnxcore50` as  your targeted framework. With the CLI 
@@ -131,7 +133,7 @@ brought, the framework needs to be one of the following:
 
 Your `project.json` is now mostly ready. You need to go through your dependencies list and update the dependencies to 
 their newer versions, especially if you are using ASP.NET Core dependencies. If you used to use separate packages for BCL APIs, 
-you can use the runtime package as explained in the [application portability type](../../app-types.md) document. 
+you can use the runtime package as explained in the [application portability type](app-types.md) document. 
 
 Once you are ready, you can try restoring with `dotnet restore`. Depending on the version of your dependencies, you 
 may encounter errors if NuGet cannot resolve the dependencies for one of the 

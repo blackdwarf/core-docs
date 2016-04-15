@@ -4,7 +4,6 @@
 * [Overview](sdk-overview.md)
 * [.NET Core Command Line Tools](cli/index.md)
     * [Overview](cli/overview.md)
-    * [Migrating from DNX](cli/dnx-migration.md)
     * [.NET Core Command Line tools extensibility](cli/extensibility.md)
     * [Using .NET Core CLI tools in Continuous Integration](cli/using-ci-with-cli.md)
     * [dotnet](cli/dotnet.md)
