@@ -1,16 +1,23 @@
 # Runtime IDentifier (RID) catalog
 
 ## What are RIDs?
-RID is short for *Runtime IDentifier*. It is a string that designates a given platform that .NET Core and 
-its surrounding ecosystem support. They look like this: "ubuntu.14.04-x64", "win7-x64", "osx.10.11-x64". RIDs
-are used in the .NET Platform to designate what a given code artifact can run on. For the packages with native 
-dependencies, as we saw, it will designate on which platforms the package can be restored. 
+RID is short for *Runtime IDentifier*.RIDs are used to identify target operating systems where an application or asset 
+(i.e. assembly) will run. They look like this: "ubuntu.14.04-x64", "win7-x64", "osx.10.11-x64". 
+For the packages with native dependencies, as we saw, it will designate on which platforms the package can be restored. 
 
 It is important to note that RIDs are really opaque strings. This means that they have to match exactly for operations 
 using them to work. As an example, let us consider the case of [Elementary OS](https://elementary.io/), which is a straightforward clone of 
 Ubuntu 14.04. Although .NET Core and CLI work on top of that version of Ubuntu, if you try to use them on Elementary OS 
 without any modifications, the restore operation for any package will fail. This is because we currently (3/25/2016) don't 
 have a RID that designates Elementary OS as a platform. 
+
+RIDs that represent concrete operating systems should be of the form: `[os].[version]-[arch]` where:
+- `[os]` is the operating system moniker, e.g. `win`
+- `[version]` is the operating system version in the form of a dot (`.`) separated version number, e.g. `10.1511`, 
+accurate enough to reasonably enable assets to target operating system platform APIs represented by that version.
+  - This **shouldn't** be marketing versions, as they often represent multiple discrete versions of the operating 
+system with varying platform API surface area, e.g. `win.10-x64`
+- `[arch]` is the processor architecture, e.g. `x86`, `x64`, `arm`, `arm64`, etc.
 
 The RID graph is defined in a package called `Microsoft.NETCore.Platforms` in a file called `runtime.json` which you can 
 see on the [CoreFX repo](https://github.com/dotnet/corefx/blob/master/pkg/Microsoft.NETCore.Platforms/runtime.json). If 
@@ -25,6 +32,27 @@ for that RID. Slightly confusing, but let's look at an example. Let's take a loo
 ```
 The above RID specifies that `osx.10.11-x64` imports `osx.10.10-x64`. This means that when restoring packages, NuGet will
 be able to restore packages that specify that they need `osx.10.10-x64` on `osx.10.11-x64`.
+
+A slightly bigger example RID graph:  
+
+- `win.10.1511-x64`
+  - `win.10.1511`
+  - `win.10-x64`
+    - `win.10`
+    - `win.6.3.9200-x64`
+      - `win.6.3-x64`
+      - `win.6.3`
+      - `win.6.3.9200`
+      - `win.6.2.9200-x64`
+        - `win.6.2.9200`
+        - `win.6.1.7600-x64`
+          - `win.6.1.7600`
+          - `win.6.1-x64`
+            - `win.6.1`
+              - `win`
+                - `any`
+
+All RIDs eventually map back to the root `any` RID.
 
 Although they look easy enough to use, there are some special things about RIDs that you have to keep in mind when 
 working with them:
