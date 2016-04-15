@@ -23,7 +23,7 @@ Depending on the type of portable app, the directory contains the following:
     supported platform. 
 2. **Self-contained application** - as above as well as the entire runtime for the targeted platform.
 
-The above types are covered in more details in the [types of portable applications](app-types.md) document. 
+The above types are covered in more details in the [types of portable applications](../../app-types.md) document. 
 
 ## OPTIONS
 

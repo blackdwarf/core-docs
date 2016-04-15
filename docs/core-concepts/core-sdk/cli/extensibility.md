@@ -15,7 +15,7 @@ The two extensibility mechanisms outlined above are not exclusive; you can use b
 depends largely on what is the goal you are trying to achieve with your extension.
 
 ## Per-project based extensibility
-Per-project tools are [portable console applications](app-types.md) that are distributed as NuGet packages. Tools are 
+Per-project tools are [portable console applications](../../app-types.md) that are distributed as NuGet packages. Tools are 
 only available in the context of the project that references them and for which they are restored; invocation outside 
 of the context of the project (e.g. outside of the directory that houses the project) will fail as the command will 
 not be able to be found.
@@ -30,9 +30,7 @@ category.
 
 ### Consuming per-project tools
 Consuming these tools requires you to add a `tools` node to your `project.json`. Inside the `tools` node, you reference
-the package in which the tool resides. After running `dotnet restore`, the tool and its depenencies are restored. By 
-default, the tool's binaries will be placed in the `$HOME/.nuget/packages/.tools/` directory on Linux and OS X and 
-`%HOME%\.nuget\packages\.tools` folder on Windows. 
+the package in which the tool resides. After running `dotnet restore`, the tool and its depenencies are restored. 
 
 For tools that need access to the build output, there is usually another dependency which is listed under the regular 
 dependencies node in the project file. 

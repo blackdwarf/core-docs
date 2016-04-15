@@ -99,7 +99,7 @@ CLI enables applications to be portable in two main ways:
 1. Completely portable application that can run anywhere .NET Core is installed
 2. Self-contained applications
 
-You can learn more about both of these in the [application types overview](app-types.md) topic. 
+You can learn more about both of these in the [application types overview](../../app-types.md) topic. 
 
 ## Migration from DNX
 If you used DNX in RC1 of .NET Core, you may be wondering what happened to it and how do these new tools

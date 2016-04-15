@@ -46,7 +46,7 @@ Dotnet test supports two running modes:
 
 1. Console: In console mode, dotnet test simply executes fully whatever command gets passed to it and outputs the results. Anytime you
 invoke dotnet test without passing --port, it will run in console mode, which in turn will cause the runner to run in console mode.
-2. Design time: when used in the context of other tools, such as editors or Integrated Development Environmments (IDEs). You 
+2. Design time: when used in the context of other tools, such as editors or Integrated Development Environments (IDEs). You 
 can find out more about this mode in the [dotnet-test protocol](dotnet-test-protocol.md) document. 
 
 ## OPTIONS

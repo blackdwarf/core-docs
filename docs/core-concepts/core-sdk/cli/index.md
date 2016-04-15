@@ -2,7 +2,6 @@
 
 * [Overview](overview.md)
 * [Migrating from DNX](dnx-migration.md)
-* [Available application types](app-types.md)
 * [.NET Core Command Line tools extensibility](extensibility.md)
 * [Using .NET Core CLI tools in Continuous Integration](using-ci-with-cli.md)
 * [dotnet](dotnet.md)

@@ -1,4 +1,4 @@
-# .NET Core CLI types of portable applications
+# Types of portability in .NET Core
 
 ## Introduction
 There are several ways to think about the "types" of applications you can build. Usually, the types describe 
