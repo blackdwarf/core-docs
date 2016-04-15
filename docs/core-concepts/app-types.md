@@ -36,7 +36,7 @@ and have your frameworks aligned as the below sample shows.
 ```json
 "dependencies": {
     "Microsoft.NETCore.App": {  
-        "version": "1.0.0-*",
+        "version": "1.0.0",
         "type": "platform"
     }
 },
@@ -67,7 +67,7 @@ dependency that has native components. The sample `project.json` fragment below 
 ```json
 "dependencies": {
     "Microsoft.NETCore.App": {  
-        "version": "1.0.0-*",
+        "version": "1.0.0",
         "type": "platform"
     }
     "Microsoft.AspNetCore.Server.Kestrel": "1.0.0-*"
@@ -112,7 +112,7 @@ The below `project.json` sample illustrates a simple self-contained application.
 
 ```json
 "dependencies": {
-    "Microsoft.NETCore.App": "1.0.0-*"
+    "Microsoft.NETCore.App": "1.0.0"
 },
 "frameworks": {
     "netcoreapp1.0": {}
