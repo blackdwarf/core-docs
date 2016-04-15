@@ -1,7 +1,6 @@
 # .NET Command Line Interface Tools
 
 * [Overview](overview.md)
-* [Migrating from DNX](dnx-migration.md)
 * [.NET Core Command Line tools extensibility](extensibility.md)
 * [Using .NET Core CLI tools in Continuous Integration](using-ci-with-cli.md)
 * [dotnet](dotnet.md)

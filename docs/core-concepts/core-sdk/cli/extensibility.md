@@ -32,12 +32,24 @@ category.
 Consuming these tools requires you to add a `tools` node to your `project.json`. Inside the `tools` node, you reference
 the package in which the tool resides. After running `dotnet restore`, the tool and its depenencies are restored. 
 
-For tools that need access to the build output, there is usually another dependency which is listed under the regular 
-dependencies node in the project file. 
+For tools that need to load the build output of the project for execution, there is usually another dependency which is 
+listed under the regular dependencies in the project file. This means that tools that load project's code have two 
+components: 
 
-Given an example command called `dotnet-api-search` that allows you to search through the NuGet packages for the specified 
-API, here is how a simple console application might reference the tool to allow it to be used in the context of its 
-project.
+1. The "tools" main invoker
+2. Any number of other tools that contain the logic to work with 
+
+Why two things? Tools that need to load the build output of a project need to have unified dependency graph with the 
+project they are working. By adding the dependency bit, we enable NuGet to resolve these dependencies as an unified 
+graph. The invoker is there because it needs to reason about the location as well as the frameworks of the dependency 
+tool. The invoker can accept all of the redirection arguments (`-c`, `-o`, `-b`) that the user specify and find the 
+dependency tool; it can also implement any policies for cases where multiple dependency tools exist for multiple 
+frameworks (i.e. does it run all of them, just one etc.) In general, logic can be shared between these two tools any way 
+that is needed. 
+
+Let's review an example of adding a simple tools-only tool to a simple project. Given an example command called 
+`dotnet-api-search` that allows you to search through the NuGet packages for the specified 
+API, here is a console application's `project.json` file that uses that tool:
 
 ```json
 {
@@ -52,7 +64,10 @@ project.
         }
     },
     "tools": {
-        "dotnet-api-search": "1.0.0"
+        "dotnet-api-search": {
+            "version": 1.0.0",
+            "imports": ["dnxcore50"]
+        }
     },
     "frameworks": {
         "netcoreapp1.0": {}
@@ -61,8 +76,9 @@ project.
 ```
 
 The `tools` node is structured in a similar way as the `dependencies` node. It needs the package ID of the package 
-containing the tool and its version at the very least. Each tool can also be a sub-node with additional options, like 
-`imports` or others to provide some influence on how the tool's restore process should work. For more of these you can 
+containing the tool and its version at the very least. In the example above, we can see that there is another statement, 
+the `imports` one. This influences the tool's restore process and specifies that the tool is also compatible, in 
+addition to any targeted frameworks the tools has, with `dnxcore50` target. For more information you can 
 consult the [project.json reference](). 
 
 ### Building tools
@@ -84,8 +100,8 @@ their dependencies.
 You can find richer examples and different combinations of this in the [.NET Core CLI repo](https://github.com/dotnet/cli/tree/rel/1.0.0/TestAssets/TestProjects). 
 You can also see the [implementation of tools used](https://github.com/dotnet/cli/tree/rel/1.0.0/TestAssets/TestPackages) in the same repo. 
 
-Building tools that require access to project's build outputs is slightly different. For these kinds of tools there are 
-two components:
+Building tools that load project's build outputs for execution is slightly different. As stated, for these kinds of 
+tools there are two components:
 
 1. A dispatcher tool that the user invokes
 2. A framework-specific dependency that contains the logic on how to find the build outputs and what to do with it
@@ -94,7 +110,7 @@ A prime example of this are [Entity Framework]() commands as well as the [dotnet
 cases there is a tool that is referenced in the `tools` node of the `project.json` and that is the main dispatcher. The 
 user invokes this tool on the command line. The second piece if the puzzle is the dependency that is given in the 
 project's main dependencies (either root ones or framework-specific ones). This package contains the actual logic of 
-the tool. The package is a normal dependency, thus it will be built as part of the build process and will be avilabl
+the tool. The package is a normal dependency, thus it will be restored as part of the restore process for the project. 
 
 Unlike the previous kind of tools, these tool are actually part of the graph of the project that consumes them. This is 
 because they need access to the project's code and potentially all of its dependencies. For instance, the EF tools need 
