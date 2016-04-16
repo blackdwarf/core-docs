@@ -20,19 +20,19 @@ that works on Windows and a bash script that works on Linux/OS X. They both have
 "understands" PowerShell switches so you can use them across the board. 
 
 Installation scripts will download the ZIP/tarball from the CLI build drops and will proceed to install it in either the 
-specified location or in a different location is the `--install-dir` is specified. By default, the installation script 
-will download the entire CLI and install it; if you want to get just the shared runtime, you can specify the `--shared-runtime`
+default location or in a location specified by `--install-dir`. By default, the installation script 
+will download the SDK and install it; if you want to get just the shared runtime, you can specify the `--shared-runtime`
 argument. 
 
-By default, the script will add the install location to the $PATH for the current session. This can be overriden if the 
+By default, the script will add the install location to the $PATH for the current session. This can be overridden if the 
 `--no-path` argument is used. 
 
-The install scripts will not install [dependencies](https://github.com/dotnet/cli/tree/rel/1.0.0/Documentation/reqs.md) 
-that are needed for each of the component. That is up to the invoker to do prior to installing bits via the script. 
+Before running the script, please install the [dependencies](https://github.com/dotnet/cli/tree/rel/1.0.0/Documentation/reqs.md) 
+that are needed. 
 
 You can install a specific version using the `--version` argument. The version needs to be specified as 3-part version 
-(e.g. 1.0.0-13232). If omitted, it will default to the first global.json found in the hiearchy above the folder the script 
-is invoked in that contains the sdkVersion property and if that is not present it will use Latest.
+(e.g. 1.0.0-13232). If omitted, it will default to the first global.json found in the hierarchy above the folder the script 
+is invoked in that contains the `sdkVersion` property and if that is not present it will use Latest.
 
 ## Options
 Options are different between script implementations. 
@@ -48,7 +48,7 @@ Which version of CLI to install; you need to specify the version as 3-part versi
 
 `-InstallDir [DIR]`
 
-Path to where to install the CLI bundle. The directory is created if it doesn't exist. On Linux/OSX this directory is created in the user home directory (`$HOME`). On Windows, this directory is created in `%LocalAppData%`. Defaults to "dotnet".
+Path to install to. The directory is created if it doesn't exist. Defaults to `%LocalAppData%\.dotnet`.
 
 `-Debug`
 
@@ -74,11 +74,11 @@ Which version of CLI to install; you need to specify the version as 3-part versi
 
 `--install-dir [DIR]`
 
-Path to where to install the CLI bundle. The directory is created if it doesn't exist. On Linux/OSX this directory is created in the user home directory (`$HOME`). On Windows, this directory is created in `%LocalAppData%`. Defaults to "dotnet".
+Path to where to install. The directory is created if it doesn't exist. Defaults to `$HOME/.dotnet`.
 
 `--debug`
 
-Whether to use the "fat" packages that contain debugging symbols or not. Defaults to "false".	
+Whether to use the larger packages that contain debugging symbols or not. Defaults to "false". You can install 
 
 `--no-path`
 

@@ -30,7 +30,7 @@ category.
 
 ### Consuming per-project tools
 Consuming these tools requires you to add a `tools` node to your `project.json`. Inside the `tools` node, you reference
-the package in which the tool resides. After running `dotnet restore`, the tool and its depenencies are restored. 
+the package in which the tool resides. After running `dotnet restore`, the tool and its dependencies are restored. 
 
 For tools that need to load the build output of the project for execution, there is usually another dependency which is 
 listed under the regular dependencies in the project file. This means that tools that load project's code have two 
@@ -65,7 +65,7 @@ API, here is a console application's `project.json` file that uses that tool:
     },
     "tools": {
         "dotnet-api-search": {
-            "version": 1.0.0",
+            "version": "1.0.0",
             "imports": ["dnxcore50"]
         }
     },

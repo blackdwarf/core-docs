@@ -2,7 +2,7 @@ dotnet-new
 ==========
 
 ## NAME
-dotnet-new -- Create a new sample .NET Core project
+dotnet-new -- Create a new .NET Core project
 
 ## SYNOPSIS
 dotnet-new [--type] [--lang]
@@ -14,9 +14,6 @@ This command is invoked in the context of a directory. When invoked, the command
 
 1. A sample "Hello World" program that exists in `Program.cs` ( or `Program.fs` ) file.
 2. A valid `project.json` file
-
-> **Note:** As a workaround for packages not being on NuGet.org yet (since this is prelease software) the `dotnet-new`
-> command will also drop a `NuGet.config` file. This will be removed at RC2 release. 
 
 After this, the project is ready to be compiled and/or edited further. 
 

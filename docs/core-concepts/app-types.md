@@ -105,7 +105,8 @@ to get a standalone application.
 
 > One thing that is important to note is that in RC2 timeframe running and publishing a self-contained 
 > application will happen from the NuGet packages cache on the machine. This means that the dependencies for the self-
-> contained application will not be ready-to-run even if they come from .NET Core libraries. This is in contrast with the 
+> contained application will not be ready-to-run even if they come from .NET Core libraries, which means that performance 
+> will not be the same between these two application types. This is in contrast with the 
 > portable application, which, as far as the .NET Core libraries are concerned, runs on ready-to-run images. 
 
 The below `project.json` sample illustrates a simple self-contained application. 
