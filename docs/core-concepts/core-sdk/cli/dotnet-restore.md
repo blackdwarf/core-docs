@@ -3,18 +3,18 @@ dotnet-restore
 
 ## NAME
 
-`dotnet-restore` - restores the dependencies and tools of a project
+`dotnet restore` - restores the dependencies and tools of a project
 
 ## SYNOPSIS
 
-dotnet-restore [--source]  
+dotnet restore [--source]  
     [--packages] [--disable-parallel]  
     [--fallbacksource] [--configfile] [--verbosity]
     [< root >]  
 
 ## DESCRIPTION
 
-`dotnet-restore` will use NuGet to restore dependencies as well as project-specific tools that are specified in the 
+`dotnet restore` will use NuGet to restore dependencies as well as project-specific tools that are specified in the 
 project.json file. By default, the restoration of dependencies and tools will be done in parallel.
 
 In order to restore the dependencies, NuGet needs feeds where the packages are located. Feeds are usually provided via the 
@@ -26,7 +26,7 @@ For dependencies, you can specify where the restored packages will be placed dur
 directory in the user's home directory on all operating systems (for example `/home/user1` on Linux or `C:\Users\user1` 
 on Windows).
 
-For project-specific tooling, `dotnet-restore` will first restore the package in which the tool is packed, and will then
+For project-specific tooling, `dotnet restore` will first restore the package in which the tool is packed, and will then
 proceed to restore the tool's dependencies as specified in its project.json. 
 
 ## OPTIONS
@@ -61,19 +61,19 @@ The verbosity of logging to use. Allowed values: Debug, Verbose, Information, Mi
 
 ## EXAMPLES
 
-`dotnet-restore`
+`dotnet restore`
 
 Restore dependencies and tools for the project in the current directory. 
 
-`dotnet-restore ~/projects/app1/project.json`
+`dotnet restore ~/projects/app1/project.json`
     
 Restore dependencies and tools for the app1 project found in the given path.
 	
-`dotnet-restore --f c:\packages\mypackages`
+`dotnet restore --f c:\packages\mypackages`
     
 Restore the dependencies and tools for the project in the current directory using the file path provided as the fallback source. 
 	
-`dotnet-restore --verbosity Error`
+`dotnet restore --verbosity Error`
     
 Show only errors in the output.
 
