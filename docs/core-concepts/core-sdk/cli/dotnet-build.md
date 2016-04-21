@@ -1,12 +1,12 @@
-dotnet-build
+dotnet build
 ===========
 
 ## NAME 
-dotnet-build -- builds a project and all of its' dependencies 
+dotnet build -- builds a project and all of its' dependencies 
 
 ## SYNOPSIS
 
-dotnet-build [--output]  
+dotnet build [--output]  
     [--build-base-path] [--framework]  
     [--configuration]  [--runtime] [--version-suffix]
     [--build-profile]  [--no-incremental] [--no-dependencies]
@@ -14,11 +14,11 @@ dotnet-build [--output]
 
 ## DESCRIPTION
 
-`dotnet-build` builds multiple source file from a source project and its dependencies into a binary. 
+`dotnet build` builds multiple source file from a source project and its dependencies into a binary. 
 The binary will be in Intermmidiate Language (IL) by default and will have a DLL extension. 
-`dotnet-build` will also drop a \*.deps file which outlines what the runner needs to run the application.  
+`dotnet build` will also drop a \*.deps file which outlines what the runner needs to run the application.  
 
-Building requires an existence of a lock file which means that a `dotnet-restore` call needs to happen 
+Building requires an existence of a lock file which means that a `dotnet restore` call needs to happen 
 previous to building.
 
 Before any compilation begins, the build verb analyzes the project and its dependencies for incremental safety checks. 
