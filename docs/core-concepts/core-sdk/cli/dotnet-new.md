@@ -2,10 +2,10 @@ dotnet-new
 ==========
 
 ## NAME
-dotnet-new -- Create a new .NET Core project
+dotnet new -- Create a new .NET Core project
 
 ## SYNOPSIS
-dotnet-new [--type] [--lang]
+dotnet new [--type] [--lang]
 
 ## DESCRIPTION
 The new command provides a convenient way to initalize a valid .NET Core project and sample source code to try out the CLI toolset. 
