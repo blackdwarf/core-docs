@@ -37,19 +37,19 @@ Print out a short help and a list of current commands.
 
 The following commands exist for dotnet.
 
-* [dotnet-new](dotnet-new.md)
+* [dotnet new](dotnet-new.md)
    * Initilazies a sample console, class library or unit test C# project.
-* [dotnet-restore](dotnet-restore.md)
+* [dotnet restore](dotnet-restore.md)
   * Restores the dependencies for a given application. 
-* [dotnet-build](dotnet-build.md)
+* [dotnet build](dotnet-build.md)
   * Builds a .NET application.
-* [dotnet-publish](dotnet-publish.md)
+* [dotnet publish](dotnet-publish.md)
    * Publishes a .NET portable or self-contained application.
-* [dotnet-run](dotnet-run.md)
+* [dotnet run](dotnet-run.md)
    * Runs the application from source.
-* [dotnet-test](dotnet-test.md)
+* [dotnet test](dotnet-test.md)
    * Runs tests using a test runner specified in project.json.
-* [dotnet-pack](dotnet-pack.md)
+* [dotnet pack](dotnet-pack.md)
    * Create a NuGet package of your code.
 
 ## EXAMPLES
