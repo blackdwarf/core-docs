@@ -32,7 +32,7 @@ compilation process to be incremental:
 - not load compilation tools from PATH (e.g., resgen, compilers)
 - use only known compilers (csc, vbc, fsc)
 
-In order to build an executable application (console application), you need a special configuration section in project.json:
+In order to build an executable application, you need a special configuration section in project.json:
 
 ```json
 { 
@@ -41,8 +41,6 @@ In order to build an executable application (console application), you need a sp
     }
 }
 ```
-
-Class libraries do not need this special piece of configuration. 
 
 ## OPTIONS
 

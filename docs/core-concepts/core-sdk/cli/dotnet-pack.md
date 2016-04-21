@@ -14,7 +14,7 @@ dotnet-pack [--output]
 
 ## DESCRIPTION
 
-`dotnet-pack` will build the project and create NuGet packages. The result of this operation are two packages 
+`dotnet-pack` will build the project and create NuGet packages. The result of this operation is two packages 
 with the extension of `nupkg`. One package contains the code and another contains the debug symbols. 
 
 NuGet dependencies of the project being packed are added to the nuspec file so they are able to be resolved when the 

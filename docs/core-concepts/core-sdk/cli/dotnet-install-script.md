@@ -34,6 +34,10 @@ You can install a specific version using the `--version` argument. The version n
 (e.g. 1.0.0-13232). If omitted, it will default to the first global.json found in the hierarchy above the folder the script 
 is invoked in that contains the `sdkVersion` property and if that is not present it will use Latest.
 
+You can also use this script to get the SDK or shared runtime debug binaries with debug symbols by using the `--debug` 
+argument. If you do not do this on first install and realize you do need debug symbols later on, you can re-run the 
+script with this argument and the version of the bits you installed. 
+
 ## Options
 Options are different between script implementations. 
 
