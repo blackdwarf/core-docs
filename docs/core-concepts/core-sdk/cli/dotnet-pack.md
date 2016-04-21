@@ -1,20 +1,20 @@
-dotnet-pack
+dotnet pack
 ===========
 
 ## NAME
 
-`dotnet-pack` - packs the code into a NuGet package
+`dotnet pack` - packs the code into a NuGet package
 
 ## SYNOPSIS
 
-dotnet-pack [--output]  
+dotnet pack [--output]  
     [--no-build] [--build-base-path]  
     [--configuration]  [--version-suffix]
     [< project >]  
 
 ## DESCRIPTION
 
-`dotnet-pack` will build the project and create NuGet packages. The result of this operation is two packages 
+`dotnet pack` will build the project and create NuGet packages. The result of this operation is two packages 
 with the extension of `nupkg`. One package contains the code and another contains the debug symbols. 
 
 NuGet dependencies of the project being packed are added to the nuspec file so they are able to be resolved when the 
@@ -33,7 +33,7 @@ this, you need to reference the required project in your dependencies node with 
 }
 ```
 
-`dotnet-pack` will by default build the project. If you wish to avoid this pass the `--no-build` option. This would be 
+`dotnet pack` will by default build the project. If you wish to avoid this pass the `--no-build` option. This would be 
 useful in CI build scenarios in which you know the code was just previously built. 
 
 ## OPTIONS
@@ -62,19 +62,19 @@ Configuration to use when building the project. If not specified, will default t
 
 ## EXAMPLES
 
-`dotnet-pack`
+`dotnet pack`
 
     Pack the current project.
 
-`dotnet-pack ~/projects/app1/project.json`
+`dotnet pack ~/projects/app1/project.json`
     
     Pack the app1 project.
 	
-`dotnet-pack --output nupkgs`
+`dotnet pack --output nupkgs`
     
     Pack the current application and place the resulting packages into the specified folder.
 
-`dotnet-pack --no-build --output nupkgs`
+`dotnet pack --no-build --output nupkgs`
 
     Pack the current project into the specified folder and skip the build step.
 	

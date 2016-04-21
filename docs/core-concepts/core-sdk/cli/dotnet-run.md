@@ -1,13 +1,13 @@
-dotnet-run
+dotnet run
 ==========
 
 ## NAME 
 
-dotnet-run -- Runs source code 'in-place' without any explicit compile or launch commands.
+dotnet run -- Runs source code 'in-place' without any explicit compile or launch commands.
 
 ## SYNOPSIS
 
-dotnet-run [--framework] [--configuration]
+dotnet run [--framework] [--configuration]
     [--project] [--] [--help]
 
 ## DESCRIPTION
@@ -15,7 +15,7 @@ The run command provides a convenient option to run source code with one command
 output program and then runs that program. This command is useful for fast iterative development and can also be used 
 to run a source-distributed program (e.g. website).
 
-This command relies on `dotnet-build(1)` to build source inputs to a .NET assembly, before launching the program. 
+This command relies on `dotnet build(1)` to build source inputs to a .NET assembly, before launching the program. 
 The requirements for and handling of source inputs for this command are all inherited from the build command. 
 The documentation for the build command provides more information on those requirements.
 

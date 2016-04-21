@@ -1,20 +1,20 @@
-dotnet-publish
+dotnet publish
 ==============
 
 ## NAME
 
-`dotnet-publish` - packs the application and all of its dependencies into a folder getting it ready for publishing
+`dotnet publish` - packs the application and all of its dependencies into a folder getting it ready for publishing
 
 ## SYNOPSIS
 
-dotnet-publish [--framework]  
+dotnet publish [--framework]  
     [--runtime] [--build-base-path] [--output]  
     [--version-suffix] [--configuration]  
     [< project >]  
 
 ## DESCRIPTION
 
-`dotnet-publish` compiles the application, reads through its dependencies specified in `project.json` and publishes the resulting set of files to a directory. 
+`dotnet publish` compiles the application, reads through its dependencies specified in `project.json` and publishes the resulting set of files to a directory. 
 
 Depending on the type of portable app, the directory contains the following:
 
@@ -29,9 +29,9 @@ The above types are covered in more details in the [types of portable applicatio
 
 `[project]` 
     
-`dotnet-publish` needs access to `project.json` to work. If it is not specified on invocation via [project], 
+`dotnet publish` needs access to `project.json` to work. If it is not specified on invocation via [project], 
 `project.json` in the current directory will be the default.     
-If no `project.json` can be found, `dotnet-publish` will error out. 
+If no `project.json` can be found, `dotnet publish` will error out. 
 
 `-f`, `--framework` [FID]
 
