@@ -19,6 +19,11 @@ main use case is to help with automation scenarios and non-admin installations. 
 that works on Windows and a bash script that works on Linux/OS X. They both have the same behavior. Bash script also 
 "understands" PowerShell switches so you can use them across the board. 
 
+You can find the scripts on these locations:
+
+1. [PowerShell script]()
+2. [Bash script]()
+
 Installation scripts will download the ZIP/tarball from the CLI build drops and will proceed to install it in either the 
 default location or in a location specified by `--install-dir`. By default, the installation script 
 will download the SDK and install it; if you want to get just the shared runtime, you can specify the `--shared-runtime`
